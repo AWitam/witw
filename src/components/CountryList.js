@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import CountryCard from "./CountryCard";
 import { device } from "../themes/mediaQueries";
-import { countries } from "../context/mock-data";
+import { DataContext, useData } from "../context/DataContext";
 
 const StyledCountryList = styled.section`
   display: grid;
@@ -29,19 +29,21 @@ const StyledCountryList = styled.section`
   }
 `;
 
-const CountryList = (props) => {
+const CountryList = () => {
+  const {
+    state: { countries, filteredCountries },
+  } = useData(DataContext);
+
+  const displayCountries =
+    filteredCountries === null ? countries : filteredCountries;
+
   return (
     <StyledCountryList>
-      {countries.map((country) => (
-        <CountryCard
-          key={country.name}
-          name={country.name}
-          region={country.region}
-          capital={country.capital}
-          population={country.population}
-          flag={country.flag}
-        />
-      ))}
+      {displayCountries.length === 0
+        ? "no matches"
+        : displayCountries.map((country) => (
+            <CountryCard details={country} key={country.alpha3Code} />
+          ))}
     </StyledCountryList>
   );
 };

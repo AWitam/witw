@@ -20,6 +20,10 @@ const StyledInputsContainer = styled.section`
   }
 `;
 
+const FlagContainer = styled.div`
+  background-image: src(${({ flag }) => flag});
+`;
+
 const InputsContainer = () => {
   return (
     <StyledInputsContainer>

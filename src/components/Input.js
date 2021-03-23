@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { ReactComponent as SearchIcon } from "../assets/icon-search.svg";
+import { useData, DataContext } from "../context/DataContext";
 
 const StyledInputWrapper = styled.div`
   padding: 1rem 2rem;
@@ -47,11 +48,24 @@ const StyledInput = styled.input.attrs((props) => ({
   }
 `;
 
-const Input = (props) => {
+const Input = () => {
+  const {
+    dispatch,
+    state: { searchQuery },
+  } = useData(DataContext);
+
+  const handleChange = (e) => {
+    dispatch({ type: "FILTER_BY_NAME", payload: e.target.value });
+  };
+
   return (
     <StyledInputWrapper>
       <SearchIcon />
-      <StyledInput placeholder="Search for a country..."></StyledInput>
+      <StyledInput
+        placeholder="Search for a country..."
+        value={searchQuery}
+        onChange={handleChange}
+      ></StyledInput>
     </StyledInputWrapper>
   );
 };

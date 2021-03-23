@@ -68,8 +68,19 @@ export const StyledOptions = styled.ul`
   width: 100%;
   top: 4rem;
   box-shadow: 0 5px 10px ${({ theme }) => theme.shadow};
+  animation: reveal 0.5s;
+
+  @keyframes reveal {
+    from {
+      transform: translateY(-10%);
+    }
+    to {
+      transform: translateY(0);
+    }
+  }
 
   li {
     padding: 0.8rem 2rem;
+    cursor: pointer;
   }
 `;

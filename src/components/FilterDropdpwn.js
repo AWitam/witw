@@ -6,22 +6,41 @@ import {
   StyledOptions,
   StyledArrow,
 } from "./StyledDropdown";
+import { DataContext, useData } from "../context/DataContext";
 
 const FilterDropdown = () => {
   const [isActive, setActive] = useState(false);
   const isOpen = isActive ? true : false;
 
+  const {
+    state: { countries, regions, currentRegion },
+    dispatch,
+  } = useData(DataContext);
+
+  const handleClick = (region) => {
+    dispatch({ type: "FILTER_BY_REGION", payload: region });
+    setActive(!isActive);
+  };
+
   return (
     <Fragment>
       <StyledFilterDropdown>
         <StyledFilterButton onClick={() => setActive(!isActive)}>
-          <span>Filter by region</span>
+          <span>
+            {currentRegion === "" ? "Filter by region" : currentRegion}
+          </span>
           <StyledArrow open={isOpen} />
         </StyledFilterButton>
         <StyledOptions open={isOpen}>
-          <li>Europe</li>
-          <li>Europe</li>
-          <li>Europe</li>
+          <li key={"all"} onClick={() => handleClick("All")}>
+            All
+          </li>
+          {countries &&
+            regions.map((region) => (
+              <li key={region} onClick={() => handleClick(region)}>
+                {region}
+              </li>
+            ))}
         </StyledOptions>
       </StyledFilterDropdown>
     </Fragment>
