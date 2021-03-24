@@ -6,7 +6,7 @@ import {
   StyledOptions,
   StyledArrow,
 } from "./StyledDropdown";
-import { DataContext, useData } from "../context/DataContext";
+import { DataContext, useData } from "../../../context/DataContext";
 
 const FilterDropdown = () => {
   const [isActive, setActive] = useState(false);

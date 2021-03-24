@@ -1,13 +1,13 @@
 import { BrowserRouter, Route } from "react-router-dom";
-import Header from "./components/Header";
-import InputsContainer from "./components/InputsContainer";
+import Header from "./components/Header/Header";
+import InputsContainer from "./components/Filters/InputsContainer";
 import { ThemeProvider } from "styled-components";
 import { GlobalStyle } from "./themes/globalStyles";
-import ThemeSwitcher from "./components/ThemeSwitcher";
+import ThemeSwitcher from "./components/ThemeSwitcher/ThemeSwitcher";
 import { lightTheme, darkTheme } from "./themes/themes";
 import useTheme from "./hooks/useTheme";
-import CountryList from "./components/CountryList";
-import CountryDetails from "./components/CountryDetails";
+import CountryList from "./pages/CountriesListPage/CountryList";
+import CountryDetails from "./pages/CountryDetailsPage/CountryDetails";
 import { DataContext, useData } from "./context/DataContext";
 import { useEffect } from "react";
 

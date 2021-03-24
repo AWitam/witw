@@ -1,7 +1,7 @@
 import styled from "styled-components";
-import Input from "./Input";
-import { device } from "../themes/mediaQueries";
-import FilterDropdwon from "./FilterDropdpwn";
+import Input from "./Input/Input";
+import { device } from "../../themes/mediaQueries";
+import FilterDropdwon from "./FilterDropdown/FilterDropdpwn";
 
 const StyledInputsContainer = styled.section`
   display: flex;
@@ -18,10 +18,6 @@ const StyledInputsContainer = styled.section`
     padding: 0 5rem;
     flex-direction: row;
   }
-`;
-
-const FlagContainer = styled.div`
-  background-image: src(${({ flag }) => flag});
 `;
 
 const InputsContainer = () => {

@@ -1,7 +1,7 @@
 import styled from "styled-components";
-import { ReactComponent as Arrow } from "../assets/icon-arrow.svg";
-import StyledButton from "./StyledButton";
-import { device } from "../themes/mediaQueries";
+import { ReactComponent as Arrow } from "../../../assets/icon-arrow.svg";
+import { StyledButton } from "../../StyledButton/StyledButton";
+import { device } from "../../../themes/mediaQueries";
 
 export const StyledFilterDropdown = styled.div`
   background-color: ${({ theme }) => theme.elements};

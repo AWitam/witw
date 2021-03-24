@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-const StyledButton = styled.button`
+export const StyledButton = styled.button`
   background-color: transparent;
   border: none;
   padding: 0;
@@ -12,5 +12,3 @@ const StyledButton = styled.button`
   align-items: center;
   cursor: pointer;
 `;
-
-export default StyledButton;

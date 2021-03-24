@@ -1,9 +1,8 @@
 import styled from "styled-components";
-import { device } from "../themes/mediaQueries";
+import { device } from "../../themes/mediaQueries";
 import { Link } from "react-router-dom";
-import { DataContext, useData } from "../context/DataContext";
 
-const StyledHeader = styled.header`
+export const StyledHeader = styled.header`
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -36,26 +35,7 @@ const StyledHeader = styled.header`
   }
 `;
 
-const StyledTitle = styled(Link)`
+export const StyledTitle = styled(Link)`
   color: inherit;
   text-decoration: none;
 `;
-
-const Header = ({ children }) => {
-  const { dispatch } = useData(DataContext);
-  const handleClick = () => {
-    dispatch({ type: "FILTER_BY_REGION", payload: "All" });
-    dispatch({ type: "FILTER_BY_NAME", payload: "" });
-  };
-  return (
-    <StyledHeader>
-      <StyledTitle to={"/"} onClick={handleClick}>
-        <h1>Where in the world?</h1>
-      </StyledTitle>
-
-      {children}
-    </StyledHeader>
-  );
-};
-
-export default Header;

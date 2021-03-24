@@ -1,8 +1,6 @@
 import styled from "styled-components";
-import { ReactComponent as SearchIcon } from "../assets/icon-search.svg";
-import { useData, DataContext } from "../context/DataContext";
 
-const StyledInputWrapper = styled.div`
+export const StyledInputWrapper = styled.div`
   padding: 1rem 2rem;
   background-color: ${({ theme }) => theme.elements};
   border: none;
@@ -24,7 +22,7 @@ const StyledInputWrapper = styled.div`
   }
 `;
 
-const StyledInput = styled.input.attrs((props) => ({
+export const StyledInput = styled.input.attrs((props) => ({
   type: "text",
 }))`
   background-color: transparent;
@@ -47,27 +45,3 @@ const StyledInput = styled.input.attrs((props) => ({
     outline: none;
   }
 `;
-
-const Input = () => {
-  const {
-    dispatch,
-    state: { searchQuery },
-  } = useData(DataContext);
-
-  const handleChange = (e) => {
-    dispatch({ type: "FILTER_BY_NAME", payload: e.target.value });
-  };
-
-  return (
-    <StyledInputWrapper>
-      <SearchIcon />
-      <StyledInput
-        placeholder="Search for a country..."
-        value={searchQuery}
-        onChange={handleChange}
-      ></StyledInput>
-    </StyledInputWrapper>
-  );
-};
-
-export default Input;
