@@ -24,11 +24,11 @@ const CountryCard = ({ details }) => {
           </p>
           <p>
             <span>Region: </span>
-            {region}
+            {region === "" ? "Polar" : region}
           </p>
           <p>
             <span>Capital: </span>
-            {capital}
+            {capital === "" ? "-" : capital}
           </p>
         </StyledCountryDetails>
       </StyledCountryCard>

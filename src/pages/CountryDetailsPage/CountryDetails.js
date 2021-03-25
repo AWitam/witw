@@ -58,15 +58,15 @@ const CountryDetails = ({ location }) => {
                 </div>
                 <div>
                   <h3>Region:&nbsp; </h3>
-                  <p>{region}</p>
+                  <p>{region === "" ? "Polar" : region}</p>
                 </div>
                 <div>
                   <h3>Sub Region:&nbsp; </h3>
-                  <p>{subregion}</p>
+                  <p>{subregion === "" ? "-" : subregion}</p>
                 </div>
                 <div>
                   <h3>Capital:&nbsp; </h3>
-                  <p> {capital}</p>
+                  <p> {capital === "" ? "-" : capital}</p>
                 </div>
                 <br></br>
               </div>
@@ -87,7 +87,7 @@ const CountryDetails = ({ location }) => {
                 </div>
                 <div>
                   <h3>
-                    {languages.length === 1 ? `Langusage:` : `Langusages:`}
+                    {languages.length === 1 ? `Language:` : `Languages:`}
                     &nbsp;
                   </h3>
                   <p>{languages.map((lang) => lang.name).join(", ")}</p>

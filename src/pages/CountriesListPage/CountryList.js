@@ -4,7 +4,7 @@ import { DataContext, useData } from "../../context/DataContext";
 
 const CountryList = () => {
   const {
-    state: { countries, filteredCountries },
+    state: { countries, filteredCountries, loading },
   } = useData(DataContext);
 
   const displayCountries =
@@ -12,7 +12,8 @@ const CountryList = () => {
 
   return (
     <StyledCountryList>
-      {displayCountries.length === 0
+      {loading && "loading..."}
+      {!loading && displayCountries.length === 0
         ? "no matches"
         : displayCountries.map((country) => (
             <CountryCard details={country} key={country.alpha3Code} />
