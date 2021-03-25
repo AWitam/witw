@@ -6,20 +6,17 @@ export const StyledHeader = styled.header`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  height: 6.25rem;
+  height: 5rem;
   padding: 0 1rem;
   background: ${({ theme }) => theme.elements};
   box-shadow: 0 5px 10px ${({ theme }) => theme.shadow};
-  margin-bottom: 2rem;
 
   h1 {
-    font-size: 1.125rem;
+    font-size: 0.875rem;
   }
 
   @media ${device.tablet} {
     padding: 0 3rem;
-    height: 5.5rem;
-
     h1 {
       font-size: 1.25rem;
     }
@@ -27,8 +24,6 @@ export const StyledHeader = styled.header`
 
   @media ${device.laptopL} {
     padding: 0 5rem;
-    height: 5rem;
-
     h1 {
       font-size: 1.5rem;
     }

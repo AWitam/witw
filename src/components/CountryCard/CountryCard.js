@@ -1,16 +1,11 @@
-import {
-  StyledCountryCard,
-  StyledCountryDetails,
-  StyledLink,
-} from "./StyledCountryCard";
+import { StyledCountryCard, StyledCountryDetails } from "./StyledCountryCard";
+import { StyledLink } from "../StyledElements/StyledLink";
+import { normalizeName } from "../../utils";
 
 const CountryCard = ({ details }) => {
   const { name, population, region, capital, flag, numericCode } = details;
 
-  const namePath = name
-    .normalize("NFD")
-    .replace(/[\u0300-\u036f]|\s/g, "")
-    .toLowerCase();
+  const namePath = normalizeName(name);
 
   return (
     <StyledLink

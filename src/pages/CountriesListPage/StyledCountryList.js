@@ -3,7 +3,6 @@ import { device } from "../../themes/mediaQueries";
 
 export const StyledCountryList = styled.section`
   display: grid;
-
   margin: 0 auto;
 
   @media ${device.mobileM} {
@@ -13,13 +12,16 @@ export const StyledCountryList = styled.section`
   }
 
   @media ${device.tablet} {
-    column-gap: 3.5rem;
+    column-gap: 2.5rem;
+  }
+
+  @media ${device.laptop} {
+    column-gap: 4.625rem;
   }
 
   @media ${device.laptopL} {
     padding: 0 5rem;
     grid-template-columns: repeat(4, 1fr);
-    column-gap: 4.625rem;
   }
 
   @media ${device.dektop} {

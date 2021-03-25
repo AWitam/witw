@@ -1,6 +1,5 @@
 import styled from "styled-components";
 import { device } from "../../themes/mediaQueries";
-import { Link } from "react-router-dom";
 
 export const StyledCountryCard = styled.div`
   background-color: ${({ theme }) => theme.elements};
@@ -30,11 +29,12 @@ export const StyledCountryCard = styled.div`
 
   @media ${device.tablet} {
     justify-self: stretch;
-    width: 100%;
+    max-width: 20rem;
   }
 
   @media ${device.laptop} {
     width: 100%;
+    margin: 0 auto 4.75rem auto;
   }
 `;
 
@@ -54,9 +54,4 @@ export const StyledCountryDetails = styled.div`
       font-weight: 600;
     }
   }
-`;
-
-export const StyledLink = styled(Link)`
-  color: inherit;
-  text-decoration: none;
 `;

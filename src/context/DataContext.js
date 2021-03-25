@@ -23,10 +23,16 @@ export const useData = () => {
     return countries.find((country) => Number(country.numericCode) === numCode);
   };
 
+  const getBorderCountry = (alphaCode) => {
+    const match = countries.find((country) => country.alpha3Code === alphaCode);
+    return match;
+  };
+
   return {
     state,
     dispatch,
     getCountryDetails,
+    getBorderCountry,
   };
 };
 

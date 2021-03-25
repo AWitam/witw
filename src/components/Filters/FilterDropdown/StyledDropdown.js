@@ -1,25 +1,24 @@
 import styled from "styled-components";
 import { ReactComponent as Arrow } from "../../../assets/icon-arrow.svg";
-import { StyledButton } from "../../StyledButton/StyledButton";
+import { StyledButton } from "../../StyledElements/StyledButton";
 import { device } from "../../../themes/mediaQueries";
 
 export const StyledFilterDropdown = styled.div`
   background-color: ${({ theme }) => theme.elements};
   border: none;
   border-radius: 0.3rem;
-  font-size: 0.8rem;
   color: ${({ theme }) => theme.input};
   display: flex;
   align-items: center;
-  width: 15.5rem;
+  width: 12.5rem;
+  height: 3rem;
   box-shadow: 0 5px 10px ${({ theme }) => theme.shadow};
-  margin-top: 2.5rem;
   font-weight: 500;
   position: relative;
 
   span {
-    margin-right: 5rem;
     color: ${({ theme }) => theme.input};
+    font-size: 0.75rem;
   }
 
   svg {
@@ -32,13 +31,14 @@ export const StyledFilterDropdown = styled.div`
   }
 
   @media ${device.tablet} {
-    margin-top: 0;
+    height: 3.2rem;
     span {
-      margin-right: 3.5rem;
+      font-size: 0.8rem;
     }
   }
 
   @media ${device.laptop} {
+    height: 3.5rem;
     span {
       margin-right: 2.75rem;
     }
@@ -51,7 +51,9 @@ export const StyledArrow = styled(Arrow)`
 `;
 
 export const StyledFilterButton = styled(StyledButton)`
-  padding: 1rem 2rem;
+  background-color: transparent;
+  box-shadow: none;
+  padding: 0.8rem 1.5rem;
   width: 100%;
 `;
 
@@ -69,6 +71,11 @@ export const StyledOptions = styled.ul`
   top: 4rem;
   box-shadow: 0 5px 10px ${({ theme }) => theme.shadow};
   animation: reveal 0.5s;
+  font-size: 0.75rem;
+
+  @media ${device.tablet} {
+    font-size: 0.8rem;
+  }
 
   @keyframes reveal {
     from {

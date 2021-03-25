@@ -6,16 +6,18 @@ import FilterDropdwon from "./FilterDropdown/FilterDropdpwn";
 const StyledInputsContainer = styled.section`
   display: flex;
   flex-direction: column;
-  padding: 0 1rem;
+  margin: 1.5rem 1rem;
   justify-content: space-between;
+  gap: 2.5rem;
 
   @media ${device.tablet} {
-    padding: 0 3rem;
+    margin: 2rem 3rem;
     flex-direction: row;
+    gap: 2rem;
   }
 
   @media ${device.laptopL} {
-    padding: 0 5rem;
+    margin: 3rem 5rem;
     flex-direction: row;
   }
 `;

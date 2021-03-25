@@ -10,5 +10,6 @@ export const GlobalStyle = createGlobalStyle`
     color: ${({ theme }) => theme.text};
     font-family: 'Nunito Sans', sans-serif;
     transition: background-color 0.3s ease-in;
+    font-weight: 300;
   }
 `;
