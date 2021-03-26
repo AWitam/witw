@@ -6,7 +6,6 @@ import {
   useEffect,
 } from "react";
 import { contextReducer, initialState } from "./contextReducer";
-// import { countries } from "./mock-data";
 
 export const DataContext = createContext();
 
@@ -18,7 +17,8 @@ const DataContextProvider = ({ children }) => {
     dispatch({ type: "SET_LOADING" });
     fetch("https://restcountries.eu/rest/v2/all")
       .then((res) => res.json())
-      .then((res) => dispatch({ type: "FETCH_DATA", payload: res }));
+      .then((res) => dispatch({ type: "FETCH_DATA", payload: res }))
+      .catch((error) => dispatch({ type: "HANDLE_ERROR", payload: error }));
   }, []);
 
   return <DataContext.Provider value={value}>{children}</DataContext.Provider>;

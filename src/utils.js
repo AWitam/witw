@@ -1,3 +1,5 @@
+// Removes accent letters and space from country name e.g. Åland Islands -> alandislands
+
 export const normalizeName = (name) =>
   name
     .normalize("NFD")

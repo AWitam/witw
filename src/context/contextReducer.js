@@ -1,8 +1,8 @@
-// import { countries } from "./mock-data";
 import { loadRegions, filterByRegion, filterByName } from "./actions";
 
 export const initialState = {
   loading: false,
+  error: false,
   countries: [],
   filteredCountries: null,
   currentRegion: "",
@@ -23,8 +23,14 @@ export const contextReducer = (state, action) => {
         countries: action.payload,
         regions: loadRegions(action.payload),
         loading: false,
+        error: false,
       };
-
+    case "HANDLE_ERROR":
+      console.log("error", action.payload);
+      return {
+        ...state,
+        error: true,
+      };
     case "FILTER_BY_REGION":
       return {
         ...state,

@@ -17,8 +17,6 @@ const FilterDropdown = () => {
     dispatch,
   } = useData(DataContext);
 
-  console.log(regions);
-
   const handleClick = (region) => {
     dispatch({ type: "FILTER_BY_REGION", payload: region });
     setActive(!isActive);

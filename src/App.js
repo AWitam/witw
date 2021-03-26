@@ -8,17 +8,10 @@ import { lightTheme, darkTheme } from "./themes/themes";
 import useTheme from "./hooks/useTheme";
 import CountryList from "./pages/CountriesListPage/CountryList";
 import CountryDetails from "./pages/CountryDetailsPage/CountryDetails";
-import { DataContext, useData } from "./context/DataContext";
-import { useEffect } from "react";
 
 function App() {
   const [theme, themeToggler] = useTheme();
   const currentTheme = theme === "light" ? lightTheme : darkTheme;
-  const { dispatch } = useData(DataContext);
-
-  useEffect(() => {
-    dispatch({ type: "LOAD_REGIONS" });
-  }, [dispatch]);
 
   return (
     <BrowserRouter>
@@ -33,22 +26,9 @@ function App() {
 
         <Route exact path="/">
           <InputsContainer />
-          <CountryList
-          // countries={countries}
-          // currentCountry={currentCountry}
-          />
+          <CountryList />
         </Route>
-        <Route
-          exact
-          path="/country/:name"
-          component={CountryDetails}
-          // render={(routeProps) => (
-          //   <CountryDetails
-          //     getCountryDetails={handleCountryDetails}
-          //     {...routeProps}
-          //   />
-          // )}
-        />
+        <Route exact path="/country/:name" component={CountryDetails} />
       </ThemeProvider>
     </BrowserRouter>
   );
