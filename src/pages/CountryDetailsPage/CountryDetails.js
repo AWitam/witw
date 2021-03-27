@@ -8,12 +8,15 @@ import {
 import { StyledLink } from "../../components/StyledElements/StyledLink";
 import { StyledButton } from "../../components/StyledElements/StyledButton";
 import { ReactComponent as ArrowBack } from "../../assets/icon-arrow-back.svg";
-import { DataContext, useData } from "../../context/DataContext";
+import { useData, DataContext } from "../../context/DataContext";
 import { normalizeName } from "../../utils";
+import { useLocation } from "react-router-dom";
 
-const CountryDetails = ({ location }) => {
-  const { getCountryDetails, getBorderCountry } = useData(DataContext);
-  const details = getCountryDetails(location.state);
+const CountryDetails = () => {
+  const details = useLocation();
+  const {
+    state: { countries },
+  } = useData(DataContext);
 
   const {
     name,
@@ -27,12 +30,19 @@ const CountryDetails = ({ location }) => {
     currencies,
     languages,
     borders,
-  } = details;
+  } = details.state;
+
+  const getBorderCountry = (alphaCode) => {
+    const match = countries.find((country) => country.alpha3Code === alphaCode);
+    return match;
+  };
 
   // dont forget to remove undefined filter
-  const borderCountries = borders
-    .map((borderCode) => getBorderCountry(borderCode))
-    .filter((el) => el !== undefined);
+  const borderCountries =
+    countries &&
+    borders
+      .map((borderCode) => getBorderCountry(borderCode))
+      .filter((el) => el !== undefined);
 
   return (
     <StyledCountryDetails>
@@ -107,7 +117,7 @@ const CountryDetails = ({ location }) => {
                         key={borderCountry.name}
                         to={{
                           pathname: `${normalizeName(borderCountry.name)}`,
-                          state: Number(borderCountry.numericCode),
+                          state: borderCountry,
                         }}
                       >
                         <StyledButton>{borderCountry.name}</StyledButton>

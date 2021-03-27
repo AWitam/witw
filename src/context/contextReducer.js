@@ -26,7 +26,6 @@ export const contextReducer = (state, action) => {
         error: false,
       };
     case "HANDLE_ERROR":
-      console.log("error", action.payload);
       return {
         ...state,
         error: true,

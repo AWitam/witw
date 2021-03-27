@@ -32,24 +32,9 @@ export const useData = () => {
 
   const [state, dispatch] = context;
 
-  const getCountryDetails = (numCode) => {
-    return state.countries.find(
-      (country) => Number(country.numericCode) === numCode
-    );
-  };
-
-  const getBorderCountry = (alphaCode) => {
-    const match = state.countries.find(
-      (country) => country.alpha3Code === alphaCode
-    );
-    return match;
-  };
-
   return {
     state,
     dispatch,
-    getCountryDetails,
-    getBorderCountry,
   };
 };
 

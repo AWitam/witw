@@ -25,7 +25,6 @@ export const filterByRegion = (data, region) => {
 
 export const filterByName = (data, name) => {
   const countriesToFilter = filterByRegion(data, data.currentRegion);
-
   return countriesToFilter.filter((country) =>
     normalizeName(country.name).includes(name.toLowerCase())
   );
