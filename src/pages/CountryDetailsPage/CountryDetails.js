@@ -14,6 +14,7 @@ import { useLocation } from "react-router-dom";
 
 const CountryDetails = () => {
   const details = useLocation();
+
   const {
     state: { countries },
   } = useData(DataContext);
@@ -37,12 +38,8 @@ const CountryDetails = () => {
     return match;
   };
 
-  // dont forget to remove undefined filter
   const borderCountries =
-    countries &&
-    borders
-      .map((borderCode) => getBorderCountry(borderCode))
-      .filter((el) => el !== undefined);
+    countries && borders.map((borderCode) => getBorderCountry(borderCode));
 
   return (
     <StyledCountryDetails>
@@ -79,6 +76,7 @@ const CountryDetails = () => {
                   <p> {capital === "" ? "-" : capital}</p>
                 </div>
                 <br></br>
+                <br></br>
               </div>
               <div>
                 <div>
@@ -102,11 +100,10 @@ const CountryDetails = () => {
                   </h3>
                   <p>{languages.map((lang) => lang.name).join(", ")}</p>
                 </div>
-
-                <br></br>
               </div>
             </div>
-
+            <br></br>
+            <br></br>
             <div>
               <StyledBorderCountries>
                 <h4>Border Countries:</h4>

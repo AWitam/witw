@@ -8,6 +8,7 @@ export const StyledCountryCard = styled.div`
   width: 16.5rem;
   height: 21rem;
   box-shadow: 0px 10px 15px ${({ theme }) => theme.shadow};
+  transition: transform 0.3s ease;
 
   .flag {
     width: 100%;
@@ -25,6 +26,14 @@ export const StyledCountryCard = styled.div`
     height: 100%;
     object-fit: cover;
     object-position: 50% 50%;
+  }
+
+  :focus-within {
+    outline: auto;
+  }
+
+  :hover {
+    transform: scale(1.05);
   }
 
   @media ${device.tablet} {

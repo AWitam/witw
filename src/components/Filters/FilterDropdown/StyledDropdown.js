@@ -26,7 +26,7 @@ export const StyledFilterDropdown = styled.div`
     fill: ${({ theme }) => theme.input};
   }
 
-  :focus-within {
+  :focus {
     outline: auto;
   }
 
@@ -55,6 +55,11 @@ export const StyledFilterButton = styled(StyledButton)`
   box-shadow: none;
   padding: 0.8rem 1.5rem;
   width: 100%;
+  height: 100%;
+
+  :focus {
+    outline: auto;
+  }
 `;
 
 export const StyledOptions = styled.ul`
@@ -72,6 +77,7 @@ export const StyledOptions = styled.ul`
   box-shadow: 0 5px 10px ${({ theme }) => theme.shadow};
   animation: reveal 0.5s;
   font-size: 0.75rem;
+  z-index: 10;
 
   @media ${device.tablet} {
     font-size: 0.8rem;
@@ -89,5 +95,9 @@ export const StyledOptions = styled.ul`
   li {
     padding: 0.8rem 2rem;
     cursor: pointer;
+
+    :focus-within {
+      outline-color: auto;
+    }
   }
 `;

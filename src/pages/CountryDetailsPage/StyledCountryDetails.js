@@ -83,6 +83,7 @@ export const StyledDetails = styled.div`
     }
 
     p {
+      font-size: 0.875rem;
       display: inline-block;
       margin: 0.5rem 0;
     }
@@ -96,6 +97,13 @@ export const StyledDetails = styled.div`
     .country-info {
       display: flex;
       gap: 4rem;
+    }
+  }
+
+  @media ${device.tablet} {
+    .country-info {
+      display: flex;
+      gap: 5.5rem;
     }
   }
 
@@ -129,6 +137,7 @@ export const StyledBorderCountries = styled.div`
     font-weight: 600;
     display: block;
     width: 100%;
+    margin: 0;
 
     @media ${device.laptop} {
       display: inline-block;

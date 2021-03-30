@@ -13,6 +13,9 @@ export const StyledHeader = styled.header`
 
   h1 {
     font-size: 0.875rem;
+    :focus-within {
+      outline-color: ${({ theme }) => theme.input};
+    }
   }
 
   @media ${device.tablet} {

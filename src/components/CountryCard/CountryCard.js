@@ -8,8 +8,8 @@ const CountryCard = ({ details }) => {
   const namePath = normalizeName(name);
 
   return (
-    <StyledLink to={{ pathname: `/country/${namePath}`, state: details }}>
-      <StyledCountryCard>
+    <StyledCountryCard>
+      <StyledLink to={{ pathname: `/country/${namePath}`, state: details }}>
         <div className="flag">
           <img src={flag} alt={name + " flag"} />
         </div>
@@ -29,8 +29,8 @@ const CountryCard = ({ details }) => {
             {capital === "" ? "-" : capital}
           </p>
         </StyledCountryDetails>
-      </StyledCountryCard>
-    </StyledLink>
+      </StyledLink>
+    </StyledCountryCard>
   );
 };
 

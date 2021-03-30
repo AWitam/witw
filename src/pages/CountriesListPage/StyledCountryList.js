@@ -5,6 +5,12 @@ export const StyledCountryList = styled.section`
   display: grid;
   margin: 0 auto;
 
+  a {
+    :focus {
+      outline: none;
+    }
+  }
+
   @media ${device.mobileM} {
     padding: 0 3rem;
     grid-template-columns: repeat(auto-fit, minmax(16.5rem, 1fr));
