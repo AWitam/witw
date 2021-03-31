@@ -1,4 +1,4 @@
-## Article Preview Component Challange
+## REST Countries App
 
 Your challenge is to integrate with the REST Countries API to pull country data and display it like in the designs.
 
