@@ -11,14 +11,26 @@ import { ReactComponent as ArrowBack } from "../../assets/icon-arrow-back.svg";
 import { useData, DataContext } from "../../context/DataContext";
 import { normalizeName } from "../../utils";
 import { useLocation } from "react-router-dom";
+import { useEffect, useRef } from "react";
 
 const CountryDetails = () => {
   const details = useLocation();
-
   const {
     state: { countries },
   } = useData(DataContext);
+  const mainRef = useRef(null);
 
+  useEffect(() => {
+    mainRef.current.focus();
+  }, []);
+
+  document.addEventListener(
+    "focusin",
+    function () {
+      console.log("focused: ", document.activeElement);
+    },
+    true
+  );
   const {
     name,
     flag,
@@ -43,12 +55,14 @@ const CountryDetails = () => {
 
   return (
     <StyledCountryDetails>
-      <BackButton to="/">
-        <ArrowBack />
-        Back
-      </BackButton>{" "}
+      <StyledLink tabIndex="1" to="/">
+        <BackButton>
+          <ArrowBack />
+          Back
+        </BackButton>
+      </StyledLink>{" "}
       {details && (
-        <StyledDetails>
+        <StyledDetails ref={mainRef}>
           <FlagContainer flag={flag} alt={`The flag of ${name}`} />
 
           <div className="info-container">
@@ -111,6 +125,7 @@ const CountryDetails = () => {
                   ? "No bordering countries"
                   : borderCountries.map((borderCountry) => (
                       <StyledLink
+                        tabIndex="1"
                         key={borderCountry.name}
                         to={{
                           pathname: `${normalizeName(borderCountry.name)}`,

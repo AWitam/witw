@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import { device } from "../../themes/mediaQueries";
-import { StyledLink } from "../../components/StyledElements/StyledLink";
+import { StyledButton } from "../../components/StyledElements/StyledButton";
 
 export const StyledCountryDetails = styled.section`
   padding: 0 1.75rem;
@@ -15,12 +15,21 @@ export const StyledCountryDetails = styled.section`
   }
 `;
 
-export const BackButton = styled(StyledLink)`
+export const BackButton = styled(StyledButton)`
   background-color: ${({ theme }) => theme.elements};
   padding: 0.5rem 1.25rem;
   box-shadow: 0px 10px 15px ${({ theme }) => theme.shadow};
   border-radius: 0.125rem;
   font-size: 0.875rem;
+  transition: transform 0.1s ease;
+
+  :focus {
+    outline: auto;
+  }
+
+  :hover {
+    transform: scale(1.05);
+  }
 
   svg {
     max-height: 0.5rem;
@@ -57,6 +66,10 @@ export const FlagContainer = styled.div`
     margin: 0;
     width: 35rem;
     height: 25rem;
+  }
+
+  @media ${device.desktop} {
+    margin: 0;
   }
 `;
 
@@ -124,6 +137,14 @@ export const StyledDetails = styled.div`
       max-width: 37.5rem;
     }
   }
+
+  @media ${device.desktop} {
+    justify-content: center;
+    .info-container {
+      max-width: auto;
+      margin: 0;
+    }
+  }
 `;
 
 export const StyledBorderCountries = styled.div`
@@ -145,8 +166,19 @@ export const StyledBorderCountries = styled.div`
     }
   }
 
+  a {
+    :focus-within {
+      outline: auto;
+    }
+  }
+
   button {
     font-size: 0.75rem;
     background-color: ${({ theme }) => theme.elements};
+    transition: transform 0.1s ease;
+
+    :hover {
+      transform: scale(1.05);
+    }
   }
 `;
