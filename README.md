@@ -1,4 +1,4 @@
-## Article Preview Component Challange
+## REST Countries App
 
 Your challenge is to integrate with the REST Countries API to pull country data and display it like in the designs.
 
@@ -23,3 +23,5 @@ Your challenge is to integrate with the REST Countries API to pull country data 
 ![Given designs for desktop](./src/assets/desktop-preview.jpg)
 
 #### Live
+
+https://competent-newton-ac02bf.netlify.app/
