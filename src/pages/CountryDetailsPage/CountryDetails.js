@@ -24,13 +24,6 @@ const CountryDetails = () => {
     mainRef.current.focus();
   }, []);
 
-  document.addEventListener(
-    "focusin",
-    function () {
-      console.log("focused: ", document.activeElement);
-    },
-    true
-  );
   const {
     name,
     flag,
@@ -51,7 +44,7 @@ const CountryDetails = () => {
   };
 
   const borderCountries =
-    countries && borders.map((borderCode) => getBorderCountry(borderCode));
+    countries && borders?.map((borderCode) => getBorderCountry(borderCode));
 
   return (
     <StyledCountryDetails>
@@ -121,7 +114,7 @@ const CountryDetails = () => {
             <div>
               <StyledBorderCountries>
                 <h4>Border Countries:</h4>
-                {borderCountries.length === 0
+                {!borderCountries
                   ? "No bordering countries"
                   : borderCountries.map((borderCountry) => (
                       <StyledLink

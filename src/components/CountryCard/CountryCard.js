@@ -3,7 +3,7 @@ import { StyledLink } from "../StyledElements/StyledLink";
 import { normalizeName } from "../../utils";
 
 const CountryCard = ({ details }) => {
-  const { name, population, region, capital, flag } = details;
+  const { name, population, region, capital, flags } = details;
 
   const namePath = normalizeName(name);
 
@@ -11,7 +11,7 @@ const CountryCard = ({ details }) => {
     <StyledCountryCard>
       <StyledLink to={{ pathname: `/country/${namePath}`, state: details }}>
         <div className="flag">
-          <img src={flag} alt={name + " flag"} />
+          <img src={flags.png} alt={name + " flag"} />
         </div>
 
         <StyledCountryDetails>

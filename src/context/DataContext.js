@@ -15,7 +15,7 @@ const DataContextProvider = ({ children }) => {
 
   useEffect(() => {
     dispatch({ type: "SET_LOADING" });
-    fetch("https://restcountries.eu/rest/v2/all")
+    fetch("https://restcountries.com/v2/all")
       .then((res) => res.json())
       .then((res) => dispatch({ type: "FETCH_DATA", payload: res }))
       .catch((error) => dispatch({ type: "HANDLE_ERROR", payload: error }));
